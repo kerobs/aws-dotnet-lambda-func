@@ -6,6 +6,10 @@ on:
   pull_request:
     branches: [ master ]
 
+defaults:
+  run:
+    working-directory: ./src
+    
 jobs:
   build-deploy:
 
@@ -26,6 +30,6 @@ jobs:
     - name: AWS CLI
       run: dotnet tool install -g Amazon.Lambda.Tools
     - name: Deploy to Lambda
-      working-directory: ../src/webapi
+      working-directory: ./src
       run: dotnet lambda deploy-serverless --stack-name lb-webapi --s3-bucket s3-lambda-repo77 --region eu-west-2 -t ../src/webapi/serverless.template --profile default
     
