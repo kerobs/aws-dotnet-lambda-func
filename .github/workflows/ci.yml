@@ -28,5 +28,5 @@ jobs:
       run: dotnet tool install -g Amazon.Lambda.Tools
     - name: Deploy to Lambda
       working-directory: ./webapi/src/webapi
-      run: dotnet lambda deploy-serverless --stack-name lb-webapi --s3-bucket s3-lambda-repo77 --region eu-west-2 -t ./webapi/src/webapi/serverless.template --profile default
+      run: dotnet lambda deploy-serverless --stack-name lb-webapi --s3-bucket s3-lambda-repo77 --region eu-west-2 --template serverless.template --profile default
     
